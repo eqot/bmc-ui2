@@ -1,11 +1,15 @@
 
-.base {
+#base {
   height: 100%;
 }
 
 .box {
   outline: 1px solid gray;
   padding: 4px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 
 .container {
@@ -27,4 +31,10 @@
 
 #bottom, #co, #rs, #kp, #kar, #vp, #crh, #cs, #ka, #cr, #kr, #ch {
   flex: 1;
+}
+
+.textarea {
+  flex: 1;
+  border: 0;
+  resize: none;
 }
