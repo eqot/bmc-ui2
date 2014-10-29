@@ -1,0 +1,19 @@
+{
+  "name": "bmc-ui2",
+  "version": "0.0.0",
+  "authors": [
+    "Ikuo Terado <eqobar@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "../",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.4.2"
+  }
+}
