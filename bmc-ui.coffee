@@ -3,6 +3,9 @@ Polymer 'bmc-ui',
   domReady: ->
     boxes = @$.base.querySelectorAll('.box')
     for box in boxes
-      textarea = document.createElement 'textarea'
-      textarea.classList.add 'textarea'
-      box.appendChild textarea
+      box.appendChild @createTextArea()
+
+  createTextArea: ->
+    textArea = document.createElement 'textarea'
+    textArea.classList.add 'textarea'
+    return textArea
