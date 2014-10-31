@@ -36,7 +36,8 @@ Polymer 'bmc-ui',
     list = element.previousSibling
 
     text = element.value
-    list.appendChild @createListItem text
+    if text.length > 0
+      list.appendChild @createListItem text
 
     # Clear text area
     element.value = ''
