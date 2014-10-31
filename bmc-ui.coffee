@@ -17,7 +17,17 @@ Polymer 'bmc-ui',
     listItem.classList.add 'list-item'
     listItem.innerText = text
 
+    removeButton = document.createElement 'span'
+    removeButton.classList.add 'remove-button'
+    removeButton.innerHTML = '&times;'
+    removeButton.addEventListener 'click', @removeListItem
+    listItem.appendChild removeButton
+
     return listItem
+
+  removeListItem: (event) ->
+    listItem = event.target.parentElement
+    listItem.remove()
 
   createTextArea: ->
     textArea = document.createElement 'textarea'
@@ -36,7 +46,8 @@ Polymer 'bmc-ui',
     list = element.previousSibling
 
     text = element.value
-    list.appendChild @createListItem text
+    if text.length > 0
+      list.appendChild @createListItem text
 
     # Clear text area
     element.value = ''
