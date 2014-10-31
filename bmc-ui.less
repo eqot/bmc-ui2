@@ -1,4 +1,7 @@
 
+@font-size: 14px;
+@font-size-large: @font-size * 1.2;
+
 #base {
   height: 100%;
 }
@@ -10,6 +13,10 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
+
+  font-family: "Helvetica Neue",Helvetica,"メイリオ",Meiryo,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN",sans-serif;
+  font-size: @font-size-large;
+  font-weight: bold;
 }
 
 .container {
@@ -37,6 +44,9 @@
   flex: 1;
   border: 0;
   resize: none;
+
+  font-weight: normal;
+  font-size: @font-size;
 }
 
 .list {
@@ -46,4 +56,7 @@
 
 .list-item {
   word-break: break-all;
+
+  font-weight: normal;
+  font-size: @font-size;
 }
