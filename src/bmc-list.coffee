@@ -2,7 +2,7 @@ Polymer 'bmc-list',
 
   domReady: ->
     @$.textarea.addEventListener 'keydown', @onKeyDown.bind(@)
-    @$.textarea.addEventListener 'blur', @cancel.bind(@)
+    @$.textarea.addEventListener 'blur', @clearTextArea.bind(@)
 
   onKeyDown: (event) ->
     if event.keyCode is 13    # Return key
@@ -12,13 +12,12 @@ Polymer 'bmc-list',
       if label.length > 0
         @addItem label
 
-      # Clear text area
-      @$.textarea.value = ''
+      @clearTextArea()
 
   addItem: (label) ->
     item = document.createElement 'bmc-listitem'
     item.setLabel label
     @$.list.appendChild item
 
-  cancel: ->
+  clearTextArea: ->
     @$.textarea.value = ''
