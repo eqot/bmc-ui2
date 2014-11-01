@@ -1,11 +1,18 @@
 @import 'common.less';
 
-ul {
+:host {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+#list {
   margin: 0;
   padding-left: 1.2em;
 }
 
-textarea {
+#textarea {
   flex: 1;
   border: 0;
   resize: none;
