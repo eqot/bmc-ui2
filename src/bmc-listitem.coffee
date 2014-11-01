@@ -11,9 +11,9 @@ Polymer 'bmc-listitem',
   destroy: (event) ->
     @.remove()
 
-  setLabel: (text) ->
-    @$.label.innerText = text
-    @$.textarea.value = text
+  setLabel: (label) ->
+    @$.label.innerText = label
+    @$.textarea.value = label
 
   edit: ->
     @setState 'edit'
