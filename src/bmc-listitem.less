@@ -10,9 +10,17 @@
 
 #remove {
   float: right;
+  height: 10px;
   margin-right: 4px;
 
   visibility: hidden;
+
+  &:hover {
+    font-weight: bold;
+    color: red;
+
+    cursor: pointer;
+  }
 }
 
 :host(:hover) #remove {
