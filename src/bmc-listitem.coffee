@@ -28,9 +28,20 @@ Polymer 'bmc-listitem',
   onKeyDown: (event) ->
     if event.keyCode is 13    # Return key
       event.preventDefault()
+      @update event
 
-      label = event.target.value
-      if label.length > 0
-        @setLabel label
+    else if event.keyCode is 27   # Esc key
+      event.preventDefault()
+      @cancel()
 
-      @setState 'normal'
+  update: (event) ->
+    label = event.target.value
+    if label.length > 0
+      @setLabel label
+
+    @setState 'normal'
+
+  cancel: ->
+    @$.textarea.value = @$.label.innerText
+
+    @setState 'normal'
