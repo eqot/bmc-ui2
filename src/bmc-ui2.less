@@ -1,0 +1,26 @@
+@import 'common.less';
+
+.box {
+  outline: 1px solid gray;
+  padding: 4px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  font-family: @font-family;
+  font-size: @font-size-large;
+  font-weight: bold;
+}
+
+#top {
+  flex: 2;
+}
+
+#bottom, #co, #rs, #kp, #kar, #vp, #crh, #cs, #ka, #cr, #kr, #ch {
+  flex: 1;
+}
+
+bmc-list {
+  flex: 1;
+}
