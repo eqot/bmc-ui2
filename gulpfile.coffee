@@ -2,11 +2,12 @@ gulp = require 'gulp'
 
 $ = require('gulp-load-plugins')()
 
+src = 'src/'
 name = require('./package.json').name
 
 paths =
-  scripts: ['*.coffee', '!gulpfile.coffee']
-  styles: ['*.less']
+  scripts: [src + '*.coffee']
+  styles: [src + '*.less']
 
 gulp.task 'scripts', ->
   return gulp.src paths.scripts
@@ -41,11 +42,12 @@ gulp.task 'connect', ->
 gulp.task 'serve', ->
   require('opn')('http://localhost:8080/' + name + '/demo.html')
 
-gulp.task 'watch', ['scripts', 'styles', 'connect', 'serve'], ->
+gulp.task 'watch', ['scripts', 'styles', 'symlink', 'connect', 'serve'], ->
   $.livereload.listen()
 
   gulp.watch([
     '*.html',
+    src + '*.html',
     '.tmp/**/*.js',
     '.tmp/**/*.css'
   ]).on 'change', $.livereload.changed
@@ -54,11 +56,8 @@ gulp.task 'watch', ['scripts', 'styles', 'connect', 'serve'], ->
   gulp.watch paths.styles, ['styles']
 
 gulp.task 'symlink', ->
-  gulp.src name + '.html'
+  gulp.src src + name + '.html'
     .pipe $.symlink('.tmp/' + name + '/' + name + '.html')
-
-  return gulp.src '../polymer'
-    .pipe $.symlink('.tmp/')
 
 gulp.task 'build', ['scripts', 'styles', 'symlink'], ->
   return gulp.src '.tmp/' + name + '/' + name + '.html'
