@@ -1,10 +1,4 @@
-
-@font-size: 14px;
-@font-size-large: @font-size * 1.2;
-
-#base {
-  height: 100%;
-}
+@import 'common.less';
 
 .box {
   outline: 1px solid gray;
@@ -14,22 +8,9 @@
   flex-wrap: nowrap;
   flex-direction: column;
 
-  font-family: "Helvetica Neue",Helvetica,"メイリオ",Meiryo,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN",sans-serif;
+  font-family: @font-family;
   font-size: @font-size-large;
   font-weight: bold;
-}
-
-.container {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.container-horizontal {
-  flex-direction: row;
-}
-
-.container-vertical {
-  flex-direction: column;
 }
 
 #top {
@@ -40,35 +21,6 @@
   flex: 1;
 }
 
-.textarea {
+bmc-list {
   flex: 1;
-  border: 0;
-  resize: none;
-
-  font-weight: normal;
-  font-size: @font-size;
-}
-
-.list {
-  margin: 0;
-  padding-left: 1.2em;
-}
-
-.list-item {
-  word-break: break-all;
-
-  font-weight: normal;
-  font-size: @font-size;
-
-  .remove-button {
-    float: right;
-    margin-right: 4px;
-    margin-bottom: 2px;
-
-    visibility: hidden;
-  }
-
-  &:hover .remove-button {
-    visibility: visible;
-  }
 }

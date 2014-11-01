@@ -8,6 +8,7 @@ name = require('./package.json').name
 paths =
   scripts: [src + '*.coffee']
   styles: [src + '*.less']
+  htmls: [src + '*.html']
 
 gulp.task 'scripts', ->
   return gulp.src paths.scripts
@@ -56,8 +57,12 @@ gulp.task 'watch', ['scripts', 'styles', 'symlink', 'connect', 'serve'], ->
   gulp.watch paths.styles, ['styles']
 
 gulp.task 'symlink', ->
-  gulp.src src + name + '.html'
-    .pipe $.symlink('.tmp/' + name + '/' + name + '.html')
+  # gulp.src src + name + '.html'
+    # .pipe $.symlink('.tmp/' + name + '/' + name + '.html')
+  return gulp.src paths.htmls
+    # .pipe $.symlink('.tmp/' + name + '/')
+    .pipe $.symlink (file) ->
+      return '.tmp/' + name + '/' + file.relative
 
 gulp.task 'build', ['scripts', 'styles', 'symlink'], ->
   return gulp.src '.tmp/' + name + '/' + name + '.html'
