@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="bmc-listitem.css" />
 
     <li>
-      <span id="label"></span>
-      <span id="remove">&times;</span>
+      <div id="static">
+        <span id="label"></span>
+        <span id="remove">&times;</span>
+      </div>
+
+      <div id="edit" class="hidden">
+        <textarea id="textarea"></textarea>
+      </div>
     </li>
 
   </template>
