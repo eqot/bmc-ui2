@@ -2,7 +2,10 @@ Polymer 'bmc-listitem',
 
   domReady: ->
     @.addEventListener 'dblclick', @edit.bind(@)
+    @.addEventListener 'blur', @cancel.bind(@)
+
     @$.remove.addEventListener 'click', @destroy.bind(@)
+
     @$.textarea.addEventListener 'keydown', @onKeyDown.bind(@)
 
   destroy: (event) ->
