@@ -7,12 +7,22 @@ Polymer 'bmc-list',
   onKeyDown: (event) ->
     if event.keyCode is 13    # Return key
       event.preventDefault()
+      @update event.target.value
 
-      label = event.target.value
-      if label.length > 0
-        @addItem label
+    else if event.keyCode is 27   # Esc key
+      event.preventDefault()
+      @cancel()
 
-      @clearTextArea()
+  update: (label) ->
+    if label.length > 0
+      @addItem label
+
+    @clearTextArea()
+
+  cancel: ->
+    @clearTextArea()
+
+    @$.textarea.blur()
 
   addItem: (label) ->
     item = document.createElement 'bmc-listitem'
