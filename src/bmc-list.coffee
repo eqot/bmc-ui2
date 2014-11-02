@@ -14,6 +14,15 @@ Polymer 'bmc-list',
 
       @clearTextArea()
 
+    else if event.keyCode is 27   # Esc key
+      event.preventDefault()
+      @cancel()
+
+  cancel: ->
+    @clearTextArea()
+
+    @$.textarea.blur()
+
   addItem: (label) ->
     item = document.createElement 'bmc-listitem'
     item.value label
