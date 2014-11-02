@@ -7,6 +7,27 @@
   <script src="../platform/platform.js"></script>
   <link rel="import" href="bmc-ui2.html">
 
+  <script>
+    jsonExample = '{"kp":["asdf","sdg"],"ka":["dfs"],"kr":[],"vp":[],"cr":["asd"],"ch":[],"cs":[],"co":["gg"],"rs":["cc","dd"]}';
+
+    function test() {
+      element = document.querySelector('bmc-ui');
+      json = JSON.stringify(element.value());
+      console.log(json);
+    }
+
+    function test2() {
+      element = document.querySelector('bmc-ui');
+      data = JSON.parse(jsonExample);
+      element.value(data);
+    }
+
+    function test3() {
+      element = document.querySelector('bmc-ui');
+      element.value(null);
+    }
+  </script>
+
   <style>
     html, body {
       height: 100%;
@@ -18,6 +39,9 @@
 </head>
 <body unresolved>
 
+  <button onclick="test()">Test</button>
+  <button onclick="test2()">Test2</button>
+  <button onclick="test3()">Clear</button>
   <bmc-ui></bmc-ui>
 
 </body>

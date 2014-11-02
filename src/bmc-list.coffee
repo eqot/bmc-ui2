@@ -16,8 +16,35 @@ Polymer 'bmc-list',
 
   addItem: (label) ->
     item = document.createElement 'bmc-listitem'
-    item.setLabel label
+    item.value label
     @$.list.appendChild item
+
+  removeAllItems: ->
+    items = @$.list.querySelectorAll 'bmc-listitem'
+    for item in items
+      item.remove()
 
   clearTextArea: ->
     @$.textarea.value = ''
+
+  value: (data) ->
+    if data?
+      @setValue data
+    else
+      @getValue()
+
+  setValue: (data) ->
+    @removeAllItems()
+
+    for label in data
+      @addItem label
+
+  getValue: ->
+    data = []
+
+    items = @$.list.querySelectorAll 'bmc-listitem'
+    for item in items
+      if item?
+        data.push item.value()
+
+    return data

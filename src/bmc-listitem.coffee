@@ -4,16 +4,9 @@ Polymer 'bmc-listitem',
     @.addEventListener 'dblclick', @edit.bind(@)
     @.addEventListener 'blur', @cancel.bind(@)
 
-    @$.remove.addEventListener 'click', @destroy.bind(@)
+    @$.remove.addEventListener 'click', @remove.bind(@)
 
     @$.textarea.addEventListener 'keydown', @onKeyDown.bind(@)
-
-  destroy: (event) ->
-    @.remove()
-
-  setLabel: (label) ->
-    @$.label.innerText = label
-    @$.textarea.value = label
 
   edit: ->
     @setState 'edit'
@@ -40,11 +33,24 @@ Polymer 'bmc-listitem',
   update: (event) ->
     label = event.target.value
     if label.length > 0
-      @setLabel label
+      @value label
 
     @setState 'normal'
 
   cancel: ->
-    @$.textarea.value = @$.label.innerText
+    @setValue @getValue()
 
     @setState 'normal'
+
+  value: (data) ->
+    if data?
+      @setValue data
+    else
+      @getValue()
+
+  setValue: (data) ->
+    @$.label.innerText = data
+    @$.textarea.value = data
+
+  getValue: ->
+    return @$.label.innerText
