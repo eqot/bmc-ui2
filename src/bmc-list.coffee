@@ -21,3 +21,21 @@ Polymer 'bmc-list',
 
   clearTextArea: ->
     @$.textarea.value = ''
+
+  value: (data) ->
+    if data?
+      @setValue data
+    else
+      @getValue()
+
+  setValue: (data) ->
+
+  getValue: ->
+    data = []
+
+    items = @$.list.querySelectorAll 'bmc-listitem'
+    for item in items
+      if item?
+        data.push item.value()
+
+    return data

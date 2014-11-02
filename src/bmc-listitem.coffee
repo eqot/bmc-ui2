@@ -48,3 +48,14 @@ Polymer 'bmc-listitem',
     @$.textarea.value = @$.label.innerText
 
     @setState 'normal'
+
+  value: (data) ->
+    if data?
+      @setValue data
+    else
+      @getValue()
+
+  setValue: (data) ->
+
+  getValue: ->
+    return @$.label.innerText
