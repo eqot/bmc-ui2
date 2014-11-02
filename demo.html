@@ -21,6 +21,11 @@
       data = JSON.parse(jsonExample);
       element.value(data);
     }
+
+    function test3() {
+      element = document.querySelector('bmc-ui');
+      element.value(null);
+    }
   </script>
 
   <style>
@@ -36,6 +41,7 @@
 
   <button onclick="test()">Test</button>
   <button onclick="test2()">Test2</button>
+  <button onclick="test3()">Clear</button>
   <bmc-ui></bmc-ui>
 
 </body>

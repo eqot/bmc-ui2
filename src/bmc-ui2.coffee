@@ -9,7 +9,9 @@ Polymer 'bmc-ui',
     document.createElement 'bmc-list'
 
   value: (data) ->
-    if data?
+    if data is null
+      @removeAll()
+    else if data?
       @setValue data
     else
       @getValue()
@@ -27,3 +29,8 @@ Polymer 'bmc-ui',
       data[box.id] = box.querySelector('bmc-list').value()
 
     return data
+
+  removeAll: ->
+    lists = @$.base.querySelectorAll('.box bmc-list')
+    for list in lists
+      list.removeAllItems()
