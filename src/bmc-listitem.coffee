@@ -8,10 +8,6 @@ Polymer 'bmc-listitem',
 
     @$.textarea.addEventListener 'keydown', @onKeyDown.bind(@)
 
-  setLabel: (label) ->
-    @$.label.innerText = label
-    @$.textarea.value = label
-
   edit: ->
     @setState 'edit'
 
@@ -37,7 +33,7 @@ Polymer 'bmc-listitem',
   update: (event) ->
     label = event.target.value
     if label.length > 0
-      @setLabel label
+      @value label
 
     @setState 'normal'
 
@@ -53,6 +49,8 @@ Polymer 'bmc-listitem',
       @getValue()
 
   setValue: (data) ->
+    @$.label.innerText = data
+    @$.textarea.value = data
 
   getValue: ->
     return @$.label.innerText

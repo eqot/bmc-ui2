@@ -16,7 +16,7 @@ Polymer 'bmc-list',
 
   addItem: (label) ->
     item = document.createElement 'bmc-listitem'
-    item.setLabel label
+    item.value label
     @$.list.appendChild item
 
   removeAllItems: ->
