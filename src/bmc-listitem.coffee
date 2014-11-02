@@ -38,7 +38,7 @@ Polymer 'bmc-listitem',
     @setState 'normal'
 
   cancel: ->
-    @$.textarea.value = @$.label.innerText
+    @setValue @getValue()
 
     @setState 'normal'
 
