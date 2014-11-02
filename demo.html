@@ -8,10 +8,18 @@
   <link rel="import" href="bmc-ui2.html">
 
   <script>
+    jsonExample = '{"kp":["asdf","sdg"],"ka":["dfs"],"kr":[],"vp":[],"cr":["asd"],"ch":[],"cs":[],"co":["gg"],"rs":["cc","dd"]}';
+
     function test() {
       element = document.querySelector('bmc-ui');
       json = JSON.stringify(element.value());
       console.log(json);
+    }
+
+    function test2() {
+      element = document.querySelector('bmc-ui');
+      data = JSON.parse(jsonExample);
+      element.value(data);
     }
   </script>
 
@@ -27,6 +35,7 @@
 <body unresolved>
 
   <button onclick="test()">Test</button>
+  <button onclick="test2()">Test2</button>
   <bmc-ui></bmc-ui>
 
 </body>

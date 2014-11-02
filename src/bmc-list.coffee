@@ -19,6 +19,11 @@ Polymer 'bmc-list',
     item.setLabel label
     @$.list.appendChild item
 
+  removeAllItems: ->
+    items = @$.list.querySelectorAll 'bmc-listitem'
+    for item in items
+      item.remove()
+
   clearTextArea: ->
     @$.textarea.value = ''
 
@@ -29,6 +34,10 @@ Polymer 'bmc-list',
       @getValue()
 
   setValue: (data) ->
+    @removeAllItems()
+
+    for label in data
+      @addItem label
 
   getValue: ->
     data = []

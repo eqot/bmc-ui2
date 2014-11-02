@@ -15,6 +15,9 @@ Polymer 'bmc-ui',
       @getValue()
 
   setValue: (data) ->
+    for id of data
+      box = @$.base.querySelector('#' + id + ' bmc-list')
+      box.value data[id]
 
   getValue: ->
     data = {}
