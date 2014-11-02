@@ -4,12 +4,9 @@ Polymer 'bmc-listitem',
     @.addEventListener 'dblclick', @edit.bind(@)
     @.addEventListener 'blur', @cancel.bind(@)
 
-    @$.remove.addEventListener 'click', @destroy.bind(@)
+    @$.remove.addEventListener 'click', @remove.bind(@)
 
     @$.textarea.addEventListener 'keydown', @onKeyDown.bind(@)
-
-  destroy: (event) ->
-    @.remove()
 
   setLabel: (label) ->
     @$.label.innerText = label
