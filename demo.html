@@ -7,6 +7,13 @@
   <script src="../platform/platform.js"></script>
   <link rel="import" href="bmc-ui2.html">
 
+  <script>
+    function test() {
+      element = document.querySelector('bmc-ui');
+      console.log(element.value());
+    }
+  </script>
+
   <style>
     html, body {
       height: 100%;
@@ -18,6 +25,7 @@
 </head>
 <body unresolved>
 
+  <button onclick="test()">Test</button>
   <bmc-ui></bmc-ui>
 
 </body>
