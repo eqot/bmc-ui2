@@ -34,15 +34,30 @@
       margin: 0;
       padding: 0;
     }
+
+    .container {
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    bmc-ui {
+      flex: 1;
+    }
   </style>
 
 </head>
 <body unresolved>
 
-  <button onclick="test()">Test</button>
-  <button onclick="test2()">Test2</button>
-  <button onclick="test3()">Clear</button>
-  <bmc-ui></bmc-ui>
+  <div class="container">
+    <div>
+      <button onclick="test()">Test</button>
+      <button onclick="test2()">Test2</button>
+      <button onclick="test3()">Clear</button>
+    </div>
+    <bmc-ui></bmc-ui>
+  </div>
 
 </body>
 </html>
