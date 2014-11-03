@@ -57,17 +57,20 @@ gulp.task 'watch', ['scripts', 'styles', 'symlink', 'connect', 'serve'], ->
   gulp.watch paths.styles, ['styles']
 
 gulp.task 'symlink', ->
-  # gulp.src src + name + '.html'
-    # .pipe $.symlink('.tmp/' + name + '/' + name + '.html')
+  gulp.src '../polymer/'
+    .pipe $.symlink('.tmp/polymer', {force: true})
+
   return gulp.src paths.htmls
-    # .pipe $.symlink('.tmp/' + name + '/')
     .pipe $.symlink (file) ->
       return '.tmp/' + name + '/' + file.relative
 
-gulp.task 'build', ['scripts', 'styles', 'symlink'], ->
+gulp.task 'compile', ['scripts', 'styles', 'symlink'], ->
   return gulp.src '.tmp/' + name + '/' + name + '.html'
     .pipe $.vulcanize({dest: 'dist', inline: true})
     .pipe gulp.dest('dist')
+
+gulp.task 'build', ['clean'], ->
+  gulp.start 'compile'
 
 gulp.task 'default', ['clean'], ->
   gulp.start 'watch'
