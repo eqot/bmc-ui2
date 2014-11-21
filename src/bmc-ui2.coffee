@@ -5,6 +5,10 @@ Polymer 'bmc-ui',
     for box in boxes
       box.appendChild @createList()
 
+    if @.content?
+      content = JSON.parse @.content
+      @setValue content
+
   createList: ->
     document.createElement 'bmc-list'
 
